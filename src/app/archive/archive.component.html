@@ -1,0 +1,9 @@
+
+<div *ngIf="month < 4 && month!= 0; then archivePage else nonExistingPage"></div>
+<ng-template #archivePage>
+  <h1>Archive Data of {{year}} / {{month}}</h1>
+  <button (click)="goToHomePage()">View All</button>
+</ng-template>
+<ng-template #nonExistingPage>
+  <app-page-not-found></app-page-not-found>
+</ng-template>
