@@ -1,13 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router';
+
+import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SuitabilityComponent } from './functionality/suitability/suitability.component';
+import { P404Component } from './error/404.component';
+import { P500Component } from './error/500.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -15,25 +20,29 @@ import { SuitabilityComponent } from './functionality/suitability/suitability.co
     HomeComponent,
     ArchiveComponent,
     PageNotFoundComponent,
-    SuitabilityComponent
+    P404Component,
+    P500Component,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      {
-        path : '',
-        component : HomeComponent
-      },
-      {
-        path : 'archive/:year/:month',
-        component : ArchiveComponent
-      },
-      {
-        path : '**',
-        component : PageNotFoundComponent
-      }
-    ])
+    SharedModule
+    // RouterModule.forRoot([
+    //   {
+    //     path : '',
+    //     component : HomeComponent
+    //   },
+    //   {
+    //     path : 'archive/:year/:month',
+    //     component : ArchiveComponent
+    //   },
+    //   {
+    //     path : '**',
+    //     component : PageNotFoundComponent
+    //   }
+    // ])
   ],
   providers: [],
   bootstrap: [AppComponent]
